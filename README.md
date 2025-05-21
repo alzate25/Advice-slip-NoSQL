@@ -1,1 +1,0 @@
-# Advice-slip-NoSQL
