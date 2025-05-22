@@ -46,11 +46,14 @@ export default function Usuario() {
     setMessage('');
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log("Usuario creado:", userCredential.user);
       const uid = userCredential.user.uid;
       await setDoc(doc(db, 'profiles', uid), {
         full_name: fullName,
         created_at: new Date(),
       });
+      console.log("Documento creado en Firestore");
+
       setMessage('Registro exitoso. Revisa tu correo para confirmar.');
     } catch (error) {
       setMessage(error.message);

@@ -1,6 +1,8 @@
 // firebase/firebaseConfig.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore'; // ✅ IMPORTAR FIRESTORE
+
 const firebaseConfig = {
   apiKey: "AIzaSyDjHsqxVQpK3hFpczSADQAwJShRju14lHI",
   authDomain: "advice-slip.firebaseapp.com",
@@ -10,6 +12,10 @@ const firebaseConfig = {
   appId: "1:1031480682851:web:2b4467013a349147494b56",
   measurementId: "G-1M6JM56HDK"
 };
+
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
-export { auth };
+const db = getFirestore(app); // ✅ INICIALIZAR DB
+
+export { auth, db }; // ✅ EXPORTAR DB TAMBIÉN
